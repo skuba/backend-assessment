@@ -15,8 +15,6 @@ Or download the zip file from github  https://github.com/skuba/backend-assessmen
 inside of the folder execute : 
 >  npm install
 
->  npm install
-
 >  node server
 
 ## User Reference
