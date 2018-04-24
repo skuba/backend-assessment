@@ -19,7 +19,7 @@ inside of the folder execute :
 
 ## User Reference
 
-Take the insurance-api-requests-test.postman_collection.json file an import it to the postman. (Chrome extension).
+Take the insurance-api-requests-test.postman_collection.json file (you can find it in the root folder) an import it to the postman. (Chrome extension).
 
 There you will find the test and the request examples.
 
