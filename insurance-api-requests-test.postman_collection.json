@@ -1,0 +1,229 @@
+{
+	"variables": [],
+	"info": {
+		"name": "insurance-api-requests-test",
+		"_postman_id": "2c988194-242f-0be4-e77c-ae5bd6afe8b5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user data filtered by user id (users,admin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Response Ok\"] = responseCode.code === 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Response data : id field Ok\"] = jsonData.id === 'a0ece5db-cd14-4f21-812f-966633e7be86'; ",
+							"tests[\"Response data : name field Ok\"] = jsonData.name === 'Britney';",
+							"tests[\"Response data : mail field Ok\"] = jsonData.email === 'britneyblankenship@quotezart.com';",
+							"tests[\"Response data : role field Ok\"] = jsonData.role === 'admin';",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " http://localhost:3000/user/id/a0ece5db-cd14-4f21-812f-966633e7be86",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token-pass",
+						"value": "a0ece5db-cd14-4f21-812f-966633e7be86",
+						"description": "user id represents the token session."
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "user data filtered by user name (user,admin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Response Ok\"] = responseCode.code === 200;",
+							"",
+							"",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Response data : id field Ok\"] = jsonData.id === 'a0ece5db-cd14-4f21-812f-966633e7be86'; ",
+							"tests[\"Response data : name field Ok\"] = jsonData.name === 'Britney';",
+							"tests[\"Response data : mail field Ok\"] = jsonData.email === 'britneyblankenship@quotezart.com';",
+							"tests[\"Response data : role field Ok\"] = jsonData.role === 'admin';",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " http://localhost:3000/user/name/Britney",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token-pass",
+						"value": "a0ece5db-cd14-4f21-812f-966633e7be86",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ist of policies linked to a user name (admin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Response Ok\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Response data : length Ok\"] = jsonData.length === 102; ",
+							"",
+							"tests[\"Response data position 0: id field Ok\"] = jsonData[0].id === '7b624ed3-00d5-4c1b-9ab8-c265067ef58b'; ",
+							"tests[\"Response data position 0: name field Ok\"] = jsonData[0].amountInsured ===  399.89;",
+							"tests[\"Response data position 0: mail field Ok\"] = jsonData[0].email === 'inesblankenship@quotezart.com';",
+							"tests[\"Response data position 0: role field Ok\"] = jsonData[0].inceptionDate === '2015-07-06T06:55:49Z';",
+							"tests[\"Response data position 0: role field Ok\"] = jsonData[0].installmentPayment === true;",
+							"tests[\"Response data position 0: role field Ok\"] = jsonData[0].clientId === 'a0ece5db-cd14-4f21-812f-966633e7be86';"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " http://localhost:3000/polices/user/name/Britney",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token-pass",
+						"value": "a0ece5db-cd14-4f21-812f-966633e7be86",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "user linked to a policy number (admin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response Ok\"] = responseCode.code === 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Response data : id field Ok\"] = jsonData.id === 'e8fd159b-57c4-4d36-9bd7-a59ca13057bb'; ",
+							"tests[\"Response data : name field Ok\"] = jsonData.name === 'Manning';",
+							"tests[\"Response data : mail field Ok\"] = jsonData.email === 'manningblankenship@quotezart.com';",
+							"tests[\"Response data : role field Ok\"] = jsonData.role === 'admin';"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " http://localhost:3000/user/policy/number/64cceef9-3a01-49ae-a23b-3761b604800b",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token-pass",
+						"value": "a0ece5db-cd14-4f21-812f-966633e7be86",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Authentication Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response Ok\"] = responseCode.code === 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Response data : error code Ok\"] = jsonData.error === 100;",
+							"tests[\"Response data : error message Ok\"] = jsonData.description === 'Authentication error';"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " http://localhost:3000/user/id/a0ece5db-cd14-4f21-812f-966633e7be86",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token-pass",
+						"value": "a0ece5db-cd14-4f21-812f-966633e7be86xx",
+						"description": "user id represents the token session."
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Authorization Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response Ok\"] = responseCode.code === 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Response data : error code Ok\"] = jsonData.error === 201;",
+							"tests[\"Response data : error message Ok\"] = jsonData.description === 'Permission Denied';",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": " http://localhost:3000/user/policy/number/64cceef9-3a01-49ae-a23b-3761b604800b",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token-pass",
+						"value": "44e44268-dce8-4902-b662-1b34d2c10b8e",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

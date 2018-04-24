@@ -4,7 +4,7 @@
 module.exports = {
     URL_CLIENTS_DATA : "http://www.mocky.io/v2/5808862710000087232b75ac",
     URL_POLICIES_DATA : "http://www.mocky.io/v2/580891a4100000e8242b75c5",
-    HTTP_SERVER_PORT : process.env.PORT,
+    HTTP_SERVER_PORT : process.env.PORT||3000,
     AUTHENTICATION_ERROR_CODE : 100,
     AUTHENTICATION_ERROR_MESSAGE : "Authentication error",
     AUTHORIZATION_ERROR_CODE : 201,
